@@ -1,0 +1,26 @@
+Partie 3
+    assert subject is not None
+	=> On test que la fonction de prédiction renvooie qq chose
+    assert isinstance(subject.get('predictions')[0], float)
+	=> On test que la valeur renvoyée est bien un float
+    assert math.ceil(subject.get('predictions')[0]) == 112476
+	=> On test que la premiere valeur renvoyée est 112476 
+
+Partie 4
+    # Given
+    test_data = load_dataset(file_name='test.csv')
+    original_data_length = len(test_data)
+    multiple_test_json = test_data.to_json(orient='records')
+
+    # When
+    subject = make_prediction(input_data=multiple_test_json)
+
+    # Then	
+    assert subject is not None
+	=> On test que la prédiction renvoie qq chose
+    assert len(subject.get('predictions')) == 1451
+	=> On test que le nombre de prédiction renvoyée est de 1451
+
+    # We expect some rows to be filtered out
+    assert len(subject.get('predictions')) != original_data_length
+	=> On test que cette valeur est différente du nombre de cas dans le jeu de test en raison des filtres
