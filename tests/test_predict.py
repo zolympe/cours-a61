@@ -13,11 +13,23 @@ def test_make_single_prediction():
     subject = make_prediction(input_data=single_test_json)
 
     # Then
-    # On test si la fonction de prediction renvoie une valeur	
     assert subject is not None
-
-    # Ensuite on test que la valeur retournée est bien un float
     assert isinstance(subject.get('predictions')[0], float)
-
-    # Enfin on test selon notre exemple connu que la valeur retournée arrondi au supérieur est bien 112476
     assert math.ceil(subject.get('predictions')[0]) == 112476
+
+
+def test_make_multiple_predictions():
+    # Given
+    test_data = load_dataset(file_name='test.csv')
+    original_data_length = len(test_data)
+    multiple_test_json = test_data.to_json(orient='records')
+
+    # When
+    subject = make_prediction(input_data=multiple_test_json)
+
+    # Then
+    assert subject is not None
+    assert len(subject.get('predictions')) == 1451
+
+    # We expect some rows to be filtered out
+    assert len(subject.get('predictions')) != original_data_length
