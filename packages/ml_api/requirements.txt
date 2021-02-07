@@ -1,6 +1,9 @@
 # api
 flask==1.0.2
 
+# schema validation
+marshmallow==2.17.0
+
 # local regression_model package
 # update with your local path
--e "C:\Users\Dell\Desktop\cours-A61\cours-A61\packages\regression_model"
+-e "/home/jupiter/Nextcloud3/CoursIA/A420-61-prod/tp_big/cours-a61/packages/regression_model"
