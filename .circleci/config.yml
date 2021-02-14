@@ -17,6 +17,7 @@ jobs:
             chmod +x ./scripts/fetch_kaggle_dataset.sh
             ./scripts/fetch_kaggle_dataset.sh
             ls /home/circleci/project/packages/regression_model/regression_model/datasets/
+            unzip house-prices-advanced-regression-techniques.zip
             cd packages/regression_model
             py.test -vv tests
 
