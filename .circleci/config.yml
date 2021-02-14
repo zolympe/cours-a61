@@ -16,6 +16,7 @@ jobs:
             # pip install packages/regression_model
             chmod +x ./scripts/fetch_kaggle_dataset.sh
             ./scripts/fetch_kaggle_dataset.sh
+            ls /home/circleci/project/packages/regression_model/regression_model/datasets/
             cd packages/regression_model
             py.test -vv tests
 
