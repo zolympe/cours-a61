@@ -16,7 +16,7 @@ jobs:
             # pip install packages/regression_model
             chmod +x ./scripts/fetch_kaggle_dataset.sh
             ./scripts/fetch_kaggle_dataset.sh
-            cd packages/regression_model
+            cd packages
             py.test -vv tests
 
 workflows:
