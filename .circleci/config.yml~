@@ -31,7 +31,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r packages/ml_api/requirements.txt
-            # cd packages/ml_api
+            cd packages/ml_api
             py.test -vv tests
 
   train_and_upload_regression_model:
